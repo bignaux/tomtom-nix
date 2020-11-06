@@ -1,10 +1,11 @@
-{ config, lib, pkgs, modulesPath, ... }:
+{ callPackage, config, lib, pkgs, modulesPath, ... }:
 
 let
   extlinux-conf-builder =
     import "${modulesPath}/system/boot/loader/generic-extlinux-compatible/extlinux-conf-builder.nix" {
       pkgs = pkgs.buildPackages;
     };
+
 in
 {
   imports = [

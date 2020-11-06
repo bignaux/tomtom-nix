@@ -1,9 +1,9 @@
-# NixOS on the Sheevaplug in 2019
+# NixOS on the Tomtom
 
 # Build and install uboot
 
 **Read this first**: [Upgrading u-boot on
-SheevaPlug](https://www.cyrius.com/debian/kirkwood/sheevaplug/uboot-upgrade/)
+SheevaPlug](https://www.cyrius.com/debian/kirkwood/tomtom/uboot-upgrade/)
 
 **You must manually preserve your ethernet address**
 
@@ -24,11 +24,11 @@ openocd](https://newit.co.uk/forum/index.php?topic=2835.0).
 # Build and dump the sdImage
 
 ```
-$ nix-build sheevaplug-system.nix -A config.system.build.sdImage -o sdImage
+$ nix-build tomtom-system.nix -A config.system.build.sdImage -o sdImage
 $ bzcat sdImage/sd-image/*.bz2 > /dev/$sdcard
 ```
 
-The contents `sd-image-sheevaplug.nix` are almost identical to
+The contents `sd-image-tomtom.nix` are almost identical to
 upstream `sd-image-aarch64.nix` and
 `sd-image-armv7l-multiplatform.nix`, the main differences are
  - no raspberry pi support
