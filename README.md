@@ -1,3 +1,6 @@
+<!-- Remove this if you don't use github actions -->
+![Build and populate cache](https://github.com/bignaux/tomtom-nix/workflows/Build%20and%20populate%20cache/badge.svg)
+
 # NixOS on the Tomtom
 
 # Build and install uboot
