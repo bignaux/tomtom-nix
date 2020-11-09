@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ configuration ? import ./pkgs/sd-image-tomtom.nix, pkgs ? import <nixpkgs> {} }:
 
 rec {
 
@@ -19,8 +19,14 @@ rec {
   #};
 
   #linuxPackages_tomtom = pkgs.linuxPackagesFor linux_tomtom;
-
+  #;
+  tomtom_image = pkgs.callPackage ./pkgs/tomtom_image.nix {};
+  #tomtom_image = (import ./pkgs/platform.nix { extraModules = [ ./tomtom_image.nix ]; }).config.system.build.tomtom_image;
+  #tomtom_image = pkgs.callPackage ./pkgs/sd-image-tomtom.nix {}; platform = system: platforms.sheevaplug;
   # todo : split packages with dev and package font
   microwindows = pkgs.callPackage ./pkgs/microwindows {};
+
+  gltt = pkgs.callPackage ./pkgs/gltt.nix { inherit navcore ttimage_tools; };
+  navcore = pkgs.callPackage ./pkgs/navcore {};
   ttimage_tools = pkgs.callPackage ./pkgs/ttimage_tools {};
 }
